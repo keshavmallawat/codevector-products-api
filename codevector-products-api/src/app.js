@@ -12,6 +12,17 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+app.get('/', (req, res) => {
+  res.json({
+    service: 'CodeVector Products API',
+    status: 'running',
+    endpoints: [
+      '/api/health',
+      '/api/products'
+    ]
+  });
+});
+
 app.use('/api/health', healthRouter);
 app.use('/api/products', productsRouter);
 
