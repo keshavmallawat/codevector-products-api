@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const healthRouter = require('./routes/health');
+const productsRouter = require('./routes/products');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/health', healthRouter);
+app.use('/api/products', productsRouter);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
